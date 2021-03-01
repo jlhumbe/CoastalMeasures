@@ -3,6 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
 a:link {
     color: green;
     background-color: transparent;
@@ -66,7 +67,7 @@ div.relative {
 
 img{
     max-width: 100%;
-    max-height: 100%;
+    max-height: auto;
   }
 
 .imleft{
@@ -124,9 +125,14 @@ div.transbox p {
     display: table;
 }
 [class*="col-"] {
-    float: left;
+    float: none;
     padding: 15px;
     width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1800px;
+
 }
 @media only screen and (min-width: 600px) {
     .col-s-1 {width: 8.33%;}
@@ -176,14 +182,22 @@ html {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .menu li {
-    padding: 20px;
-    margin-bottom: 7px;
+    padding: 1px;
+    text-align: center
+    float: left;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
     background-color :#ffffff;
     color: #000000;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 70%;
+    box-shadow: 0 1px 5px rgba( 100, 100, 100,1), 7px 7px 9px rgba( 100, 100, 100,2);
 }
 
 .menu li:hover {
@@ -225,94 +239,323 @@ html {
   width: 50%;
 }
 
+.centerIM {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 #responsive-image {  width: 100%;  height: auto;  max-width: 1800px; max-height: 400px;
 } 
+
+#responsive-image2 {  width: 45%;  height: auto;  max-width: 500px; max-height: 400px;
+} 
+
+/* Add a black background color to the top navigation */
+.topnav {
+  position: relative;
+  background-color: #333;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  max-width: 1800px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Centered section inside the top navigation */
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right-aligned section inside the top navigation */
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+.resp-container {
+    float: center
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    max-width: 1000px;
+    height: 1000px;
+    
+
+}
+
+.resp-iframe {
+    position: relative;
+    float: center;
+    width: 90%;
+    height: 100%;
+    border: 0;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 33.3%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+hr { 
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+
+} 
+
 
 /******************************************************************************
 
 </style>
 </head>
 
-<!--<body style="background-color:white";>
-<div class="header">
-    <h1><b><font color = "red">Coastal Measures LLC</font></b></h1>
-</div>/*-->
+<div id="home";>
+    <img style="margin-bottom: 7px;" src="CMtopbanner.PNG" id="responsive-image" class="center" alt="Coastal Measures"/>
+</div>
 
-<img style="margin-bottom: 7px;" src="CMtopbanner.PNG" id="responsive-image" class="center" alt="Coastal Measures"/>
+<!-- Top navigation -->
+<div class="topnav">
 
-<hr size="5" COLOR="yellow" noshade>
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="#home" class="active">Home</a>
+  </div>
 
+  <!-- Left-aligned links (default) -->
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+  </div>
+
+</div>
 
 <div class="row">
-    <div class="col-3 col-s-3 menu">
-      <ul>
-
-        <!--<li style="background-color: rgb(100, 100, 100) ;color: rgb(220, 110, 0);font-size:4em;line-height: 3em;"><center>Products</center></li>-->
-        <!--<img style="margin-bottom: 7px;" src="ProductsIMG.png" alt="Coastal Measures"/>-->
-        <br>
+    <div style="background-color:rgb(255,255,255);" class="col-8 col-s-12 menu">
+    	<!--<p class="big"> Contact us: NOTYETSETUP@coastalmeasures.com</p>-->    
+        <p style="text-align:center;font-size:2.1em";class="medium"> Please contact us at:<br> <b>coastalmeasures@gmail.com</b></a>.</p>
+        <p><font size="3"><br></font></p>
         
-        <!-- <li><a href="https://github.com/jlhumbe/CoastalMeasures/raw/master/UserManual_DriftAlong.pdf" target="_self">User Manual</a></li> -->
-        <li style="color: rgb(0, 0, 0);font-size:1.3em;line-height: 1.25em;border:2px solid black;">
-
-            <img style="margin-bottom: 7px;" src="DA_Logo_v03.png" alt="Coastal Measures"/>
-            <br>
-
-            <b>DriftAlong</b> is a small passive drifter for use in coastal or inland waters. Collections may be begun or ended via a GUI on a small touch screen on the instrument, or remotely from a computer or smartphone. An online dashboard allows users to communicate with DriftAlongs in mass to simplify 'swarm' deployments. Units start at $499 per unit without a remote connection and at $699 with a remote connection. Please contact us to learn more. <br><br><br>
-
-
-            <img style="margin-bottom: 7px;" src="DA_NB_6.png" id="responsive-image" alt="Coastal Measures"/>
-
-              <img style="margin-bottom: 7px;" src="DA_CompGUI_02.png" id="responsive-image" alt="Coastal Measures"/>
-
-        </li>
-
-
-        
-        <!-- <li><a href="https://github.com/jlhumbe/CoastalMeasures/raw/master/UserManual_DriftAlong.pdf" target="_self">User Manual</a></li> -->
-        <li style="color: rgb(0, 0, 0);font-size:1.3em;line-height: 1.25em;border:2px solid black;">
-
-            <img style="margin-bottom: 7px;" src="CFAS_logo.PNG" id="responsive-image" class="center" alt="Coastal Measures"/>
-
-            <br>
-
-            Coastal communities know all too well that strong weather systems often bring with them dangerous and damaging flooding However, it remains difficult to prepare for these events without knowing when or how severe this flooding will be. The <b>Coastal Flood Alert System (CFAS)</b> is a hardware-software-service package using water level sensors and a custom scientific analysis to provide locally catered short-term (1-3days) flood predictions based on the unique environmental setup of each community. With test cases improving water level predictions by as much as 40%, CFAS will help residents prepare or evacuate earlier and provide much improved guidance for emergency response teams. Please contact us to learn more.</li>
-
-      </ul>
     </div>
 
-    <div style="background-color:rgb(255,255,255);" class="col-8 col-s-12 menu">
-    	<!--<p class="big"> Contact us: NOTYETSETUP@coastalmeasures.com</p>-->
-                
-        <p style="text-align:center;font-size:2.1em";class="medium"> Please contact us at:<br> <b>coastalmeasures@gmail.com</b></a>.</p>
 
-        <p style="text-align:center;font-size:2.1em">Check out some of our recent work!<br> </p>
+    <div id="about"; style="background-color:rgb(255,255,255);" class="col-8 col-s-12 menu">
+        <hr margin-top: 3px; margin-bottom: 3px; size="10" COLOR="orange" noshade>
 
-        <div style="text-align:center;">
-        <iframe width="100%" height="515" src="https://www.youtube.com/embed/7AwQMkP8C50" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+    <img style="margin-bottom: 7px;width: 90%;  height: 30%;  max-width: 1800px; max-height: 1700px;" src="AboutCM.PNG" id="responsive-image" class="center" alt="Coastal Measures"/>
 
+        
         <ul>
-        <p style="text-align:center;font-size:1.5em"><br>Coastal Measures focuses on using recent scientific and technological innovations to modernize tools for environmental observation, with a specific focus on providing tools to help vulnerable coastal communities.<br><br> Services Include: <br></font></p>
+        <p style="text-align:left;font-size:2em;"><br>When it comes to the environment we live and work in, it is always better to know more. Coastal Measures turns scientific insights into usable products and services to better measure the environment. This translates into a range of services including ancillary system to improve the capturing of renewable energies, the development of sensors for scientific research, and service packages for vulnerable communities to asses and mitigate environmental risks.<br></font></p>
 
-        <li style="background-color: rgb(200, 200, 200) ;color: black;margin-bottom: 10px;"><p class="big"><b>Time Series Analysis:</b> From raw data to statistical analysis, Coastal Measures can help make your data meaningful.</p></li>
+        <li style="background-color: rgb(249, 182, 174) ;color: black;margin-bottom: 10px;"><p  style="font-size:3em;"> <b>Time Series Analysis:</b> From raw data to statistical analysis, Coastal Measures can help make your data meaningful.</p></li>
 
-        <li style="background-color: rgb(200, 200, 200);color: black;margin-bottom: 10px;"><p class="big"><b>Coastal Studies:</b> Deciding where and how to place sensors or collect specific data can be difficult. Work with a coastal scientist and Cat-A certified hydrographer to plan surveys and instrument deployments.</p></li>
+        <li style="background-color: rgb(200, 200, 200);color: black;margin-bottom: 10px;"><p  style="font-size:3em;"> <b>Coastal Studies:</b> Deciding where and how to place sensors or collect specific data can be difficult. Work with a coastal scientist and Cat-A certified hydrographer to plan surveys and instrument deployments.</p></li>
 
 
-        <li style="background-color: rgb(200, 200, 200);color: black;margin-bottom: 10px;"><p class="big"><b>Instrument Development:</b> Coastal Measures is constantly exploring new cost effective solutions for data collection. Our current focus is <i>DriftAlong</i> ,a passive drifter specifically designed for swarm deployment in coastal environments. </p></li>
+        <li style="background-color: rgb(249, 182, 174);color: black;margin-bottom: 10px;"><p  style="font-size:3em;"> <b>Instrument Development:</b> Coastal Measures is constantly exploring new cost effective solutions for data collection. Our current focus is <i>DriftAlong</i> ,a passive drifter specifically designed for swarm deployment in coastal environments. </p></li>
 
-        <li style="background-color: rgb(200, 200, 200);color: black;margin-bottom: 10px;"><p class="big"><b>Data Visualization:</b> Data rarely tells the full story by itself. Coastal Measures can help find and create powerful figures to visualize your data.</p></li>
+        <li style="background-color: rgb(200, 200, 200);color: black;margin-bottom: 10px;"><p  style="font-size:3em;"> <b>Data Visualization:</b> Data rarely tells the full story by itself. Coastal Measures can help find and create powerful figures to visualize your data.</p></li>
         </ul>
     </div>
 </div>
 
+<div class="topnav">
 
-    <div>
-        <p><font size="7"><br><br><br><br><br><br><br><br></font></p>
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="#home" class="active">Home</a>
+  </div>
+
+  <!-- Left-aligned links (default) -->
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="#products">Products</a>
+    <a href="#services">Services</a>
+  </div>
+
+</div>
+
+<div class="row">
+    <div id="products"; style="background-color:rgb(255,255,255);" class="col-8 col-s-12 menu">
+        <hr size="10" COLOR="orange" noshade>
+        <p><font size="1"><br></font></p>
+        <img class="center" src="DA_Logo_v03.png" alt="Coastal Measures"/>
+        <br>
+
+        <div class="row">
+            <p><font size="5"><br><b>DriftAlong</b> is a small passive drifter for individual or swarm deployments in coastal or inland waters. A minimalist approach was used in design to remove complicating and superfelous features while reducing production costs. Collections may be begun or ended via a GUI on a small touch screen on the instrument, or remotely from a computer or smartphone. An online dashboard allows users to communicate with DriftAlongs in mass to simplify 'swarm' deployments. Units start at $499 per unit without a remote connection and at $699 with a remote connection.  <br><br><br></font></p>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="DSC_0397.JPG">
+                    <img src="DSC_0397.JPG" alt="Forest" width="600" height="400">
+                </a>
+            <div class="desc">Turning a DriftAlong on before deploying.</div>
+            </div>  
+        </div>
+        
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="DA_NB_6.png">
+                    <img src="DA_NB_6.png" alt="Cinque Terre" width="600" height="400">
+                </a>
+            <div class="desc">These 6 DriftAlongs were used for a study of current patterns in the Great Bay,NH conducted by the University of New Hampshire. They were also used to test the effectiveness of differnt setups of the stabalization fins.</div>
+            </div>
+        </div>
+        
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="FRF_DA_A001_20191103.png">
+                <img src="FRF_DA_A001_20191103.png" alt="Forest" width="600" height="400">
+                </a>
+                <div class="desc">Deployed during moderate wave conditions, this DriftAlong relatively quickly washed ashore. Periods of high velocity mark when the DriftAlong was within breaking waves.</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="FRF_20191113_DA_A0001.png">
+                    <img src="FRF_20191113_DA_A0001.png" alt="Cinque Terre" width="600" height="400">
+                </a>
+            <div class="desc">This DriftAlong was deployed during a high wind and wave event. Seaward of the bar, waves and currents pushed the sensor relatively slowly to landward of the sanbar where waves broke. Here, a strong current rapidly pushed the DriftAlong several miles down the coast where it was recovered.</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="DA_CompGUI_02.png">
+                    <img src="DA_CompGUI_02.png" alt="Forest" width="600" height="400">
+                </a>
+            <div class="desc">A computer interface may be used to wirelessly transfer data between DriftAlongs and any computer, immeadiately display the geographic data over satellite imagery, and save the data to a new file format.</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div class="gallery">
+                <a target="_blank" href="2019-12-31-075512_480x320_scrot.png">
+                    <img src="2019-12-31-075512_480x320_scrot.png" alt="Forest" width="600" height="400">
+                </a>
+            <div class="desc">The status of a DriftAlong may be modified by a small touchscreen interface on the instruments, or wirelessly and in bulk from an online dashboard that passes messages via a cellular</div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+            p><font size="5"><br><br><b>Please contact us to learn more.</b> <br><br><br></font></p>
+
     </div>
 </div>
 
+<div class="row">
+    <div id="products"; style="background-color:rgb(255,255,255);" class="col-8 col-s-12 menu">
+        <hr size="10" COLOR="orange" noshade>
+        <p><font size="5"><br><br><b>Check out some of our recent work in the Great Bay, NH</b> <br><br><br></font></p>
+        <div class="resp-container">
+            <iframe class="resp-iframe" src="https://www.youtube.com/embed/7AwQMkP8C50" gesture="media"  allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <hr size="10" COLOR="orange" noshade>
+    </div>
+</div>
 
+<div>
+    <p><font size="7"><br><br><br></font></p>
+</div>
 
 <div class="footer">
   <p>Coastal Measures &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=".." target="_self">HOME</a></p>
